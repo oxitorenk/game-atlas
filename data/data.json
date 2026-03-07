@@ -1,0 +1,35 @@
+[
+  {
+    "tags": [
+      "cozy",
+      "simulation",
+      "pizza",
+      "narrative",
+      "casual",
+      "management"
+    ],
+    "perfect": [
+      "Sanat tasarımı."
+    ],
+    "good": [],
+    "poor": [
+      "Ana oynanış döngüsü hızlıca sıkıcılaşıyor, tek devam sebebi narrative oluyor."
+    ],
+    "terrible": [
+      {
+        "text": "UX tasarımı yaşını belli eden kötü tasarım tercihleriyle dolu.",
+        "children": [
+          "Pizza kesiciyi kullanmaya karar verdikten sonra işlemi iptal etmenin bir yolu yok."
+        ]
+      },
+      "PC versiyonu da tıpkı mobil versiyonları gibi oyun içi satın alımlarla dolu.",
+      "PC versiyonu defalarca cloud save problemi çıkartıp oyunu oynanamaz hale getirdi, iade etmek zoruna kaldım."
+    ],
+    "mechanics": [],
+    "uiux": [],
+    "id": "good-pizza,-great-pizza",
+    "name": "Good Pizza, Great Pizza",
+    "hero": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hero.jpg",
+    "thumbnail": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/thumbnail.jpg"
+  }
+]
