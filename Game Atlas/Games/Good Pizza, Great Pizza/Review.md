@@ -17,7 +17,7 @@ tags:
 - UX tasarımı yaşını belli eden kötü tasarım tercihleriyle dolu.
 	- Pizza kesiciyi kullanmaya karar verdikten sonra işlemi iptal etmenin bir yolu yok.
 - PC versiyonu da tıpkı mobil versiyonları gibi oyun içi satın alımlarla dolu.
-- PC versiyonu defalarca cloud save problemi çıkartıp oyunu oynanamaz hale getirdi, iade etmek zoruna kaldım.
+- PC versiyonu defalarca cloud save problemi çıkartıp oyunu oynanamaz hale getirdi, iade etmek zorunda kaldım.
 # Mekanikler
 
 # UI / UX

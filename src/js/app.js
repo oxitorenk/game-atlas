@@ -12,6 +12,7 @@ const ui = {
     viewDetail: document.getElementById('view-detail'),
     gamesList: document.getElementById('games-list'),
     searchInput: document.getElementById('search-input'),
+    searchDropdown: document.getElementById('search-dropdown'),
     backBtn: document.getElementById('back-btn'),
     detailHero: document.getElementById('detail-hero'),
     detailName: document.getElementById('detail-name'),
@@ -23,11 +24,24 @@ async function init() {
     loadState();
     await fetchGames();
 
-    // Bind Events
+    // Bind Search Events for Modern Dropdown
     ui.searchInput.addEventListener('input', (e) => {
         _state.searchQuery = e.target.value;
-        renderHome();
+        renderSearchDropdown();
         saveState();
+    });
+
+    ui.searchInput.addEventListener('focus', () => {
+        if (_state.searchQuery.trim().length > 0) {
+            ui.searchDropdown.classList.remove('hidden');
+        }
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.ios-search-container')) {
+            ui.searchDropdown.classList.add('hidden');
+        }
     });
 
     ui.backBtn.addEventListener('click', () => {
@@ -140,23 +154,100 @@ async function fetchGames() {
     }
 }
 
-function renderHome() {
-    const query = _state.searchQuery.toLowerCase();
-    const filtered = _state.games.filter(g =>
-        g.name.toLowerCase().includes(query) ||
-        (g.tags && g.tags.some(t => t.toLowerCase().includes(query))) ||
-        (g.mechanics && g.mechanics.some(m => m.title && m.title.toLowerCase().includes(query))) ||
-        (g.uiux && g.uiux.some(u => u.title && u.title.toLowerCase().includes(query)))
-    );
+function renderSearchDropdown() {
+    const query = _state.searchQuery.toLowerCase().trim();
+    if (query.length === 0) {
+        ui.searchDropdown.classList.add('hidden');
+        ui.searchDropdown.innerHTML = '';
+        return;
+    }
 
-    if (filtered.length === 0) {
+    const results = [];
+
+    _state.games.forEach(g => {
+        // Name match
+        if (g.name.toLowerCase().includes(query)) {
+            results.push({ game: g, type: 'Oyun', label: g.name, target: '' });
+        }
+
+        // Tag match
+        if (g.tags) {
+            g.tags.forEach(t => {
+                if (t.toLowerCase().includes(query)) {
+                    results.push({ game: g, type: 'Etiket', label: t, target: '' });
+                }
+            });
+        }
+
+        // Mechanic match
+        if (g.mechanics) {
+            g.mechanics.forEach(m => {
+                if (m.title && m.title.toLowerCase().includes(query)) {
+                    results.push({ game: g, type: 'Mekanik', label: m.title, target: slugify(m.title) });
+                }
+            });
+        }
+
+        // UI/UX match
+        if (g.uiux) {
+            g.uiux.forEach(u => {
+                if (u.title && u.title.toLowerCase().includes(query)) {
+                    results.push({ game: g, type: 'Arayüz', label: u.title, target: slugify(u.title) });
+                }
+            });
+        }
+    });
+
+    if (results.length === 0) {
+        ui.searchDropdown.innerHTML = '<div class="search-dropdown-empty">Sonuç bulunamadı.</div>';
+    } else {
+        ui.searchDropdown.innerHTML = results.map(res => `
+            <div class="search-dropdown-item" onclick="handleDropdownSelect('${res.game.id}', '${res.target}')">
+                <img class="search-dropdown-thumb" src="${res.game.thumbnail || ''}" alt="">
+                <div class="search-dropdown-info">
+                    <span class="search-dropdown-title">${res.game.name}</span>
+                    <span class="search-dropdown-tags"><strong>${res.type}:</strong> ${res.label}</span>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    ui.searchDropdown.classList.remove('hidden');
+}
+
+window.handleDropdownSelect = function (gameId, targetId = '') {
+    ui.searchDropdown.classList.add('hidden');
+
+    // Clear search context after selection
+    ui.searchInput.value = '';
+    _state.searchQuery = '';
+    saveState();
+
+    navigate('detail', gameId);
+
+    // Scroll to specific section after detail page is loaded
+    if (targetId) {
+        setTimeout(() => {
+            const targetEl = document.getElementById(`section-${targetId}`);
+            if (targetEl && ui.detailParallax) {
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }, 100);
+    }
+}
+
+function renderHome() {
+    // The main grid no longer filters on input, serving as the "explore all" view.
+    const games = _state.games;
+
+    if (games.length === 0) {
         ui.gamesList.innerHTML = '<div class="ios-cell"><div class="ios-cell-content"><span class="ios-cell-label">Oyun bulunamadı.</span></div></div>';
         ui.gamesList.className = 'ios-list';
         return;
     }
 
     ui.gamesList.className = 'ios-grid';
-    ui.gamesList.innerHTML = filtered.map(game => `
+    ui.gamesList.innerHTML = games.map(game => `
         <div class="ios-grid-card" onclick="navigate('detail', '${game.id}')">
             <img class="ios-grid-card-image" src="${game.thumbnail || ''}" alt="${game.name}">
             <div class="ios-grid-card-info">
