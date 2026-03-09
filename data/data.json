@@ -9,11 +9,16 @@
       "management"
     ],
     "perfect": [
-      "Sanat tasarımı."
+      "Sanat tasarımı"
     ],
-    "good": [],
+    "good": [
+      "Narrative.",
+      "Ses Efektleri.",
+      "<a href=\"#Bahçe\" class=\"wiki-link\">Bahçe</a> mekaniği."
+    ],
     "poor": [
-      "Ana oynanış döngüsü hızlıca sıkıcılaşıyor, tek devam sebebi narrative oluyor."
+      "Ana oynanış döngüsü hızlıca sıkıcılaşıyor, tek devam sebebi narrative oluyor.",
+      "Upgradeler genelde yaptığın bir şeyi otomatik olarak yapmak üzerine ve oldukça az sayıdalar."
     ],
     "terrible": [
       {
@@ -25,8 +30,106 @@
       "PC versiyonu da tıpkı mobil versiyonları gibi oyun içi satın alımlarla dolu.",
       "PC versiyonu defalarca cloud save problemi çıkartıp oyunu oynanamaz hale getirdi, iade etmek zorunda kaldım."
     ],
-    "mechanics": [],
-    "uiux": [],
+    "mechanics": [
+      {
+        "title": "Bahçe",
+        "text": "* Bahçe mekaniği ekstra bir katman daha ekleyerek oynanışı bi süreliğine tazeliyor.\n* Sebze ve meyvelerini yetiştirip ücretsiz bir şekilde pizzaya eklemek keyifli.",
+        "images": []
+      }
+    ],
+    "uiux": [
+      {
+        "title": "Ana Menü",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/ana-menü.jpeg"
+        ]
+      },
+      {
+        "title": "Ana Menü - Hızlı Erişim Dropdown",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/ana-menü-hızlı-erişim.jpeg"
+        ]
+      },
+      {
+        "title": "Ayarlar",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/ayarlar.jpeg"
+        ]
+      },
+      {
+        "title": "IAP Mağazası",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/iap.jpeg"
+        ]
+      },
+      {
+        "title": "MyPad",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/mypad.jpeg"
+        ]
+      },
+      {
+        "title": "Bahçe",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/bahçe.jpeg"
+        ]
+      },
+      {
+        "title": "Başarımlar",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/başarımlar.jpeg"
+        ]
+      },
+      {
+        "title": "Görevler",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/görevler.jpeg"
+        ]
+      },
+      {
+        "title": "Hikayeler",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hikayeler.jpeg"
+        ]
+      },
+      {
+        "title": "Kasa",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/kasa.jpeg"
+        ]
+      },
+      {
+        "title": "Mutfak",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/mutfak.jpeg"
+        ]
+      },
+      {
+        "title": "Rehber",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/kitap.jpeg"
+        ]
+      },
+      {
+        "title": "Mağaza",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/mağaza.jpeg"
+        ]
+      }
+    ],
     "id": "good-pizza,-great-pizza",
     "name": "Good Pizza, Great Pizza",
     "hero": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hero.jpg",

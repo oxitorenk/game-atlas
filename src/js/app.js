@@ -68,6 +68,8 @@ async function init() {
     // Global access for simple onclicks
     window.setView = setView;
     window.navigate = navigate;
+    window.openLightbox = openLightbox;
+    window.closeLightbox = closeLightbox;
 }
 
 const slugify = (text) => {
@@ -307,19 +309,19 @@ function renderDetail(gameId) {
         `;
     };
 
-    const renderStructuredSection = (sectionData, color, icon) => {
+    const renderStructuredSection = (sectionData, color, icon, sectionId) => {
         if (!sectionData || sectionData.length === 0) return '';
 
         return sectionData.map(sub => {
-            const sectionId = sub.title ? slugify(sub.title) : '';
+            const subSectionId = sub.title ? slugify(sub.title) : '';
             return `
-                <div class="detail-subsection" ${sectionId ? `id="section-${sectionId}"` : ''}>
+                <div class="detail-subsection" ${subSectionId ? `id="section-${subSectionId}"` : ''}>
                     ${sub.title ? `<div class="detail-subsection-title">${sub.title}</div>` : ''}
-                    ${sub.text ? `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>` : ''}
+                    ${(sub.text && sectionId !== 'uiux') ? `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>` : ''}
                     ${sub.images && sub.images.length > 0 ? `
                         <div class="detail-gallery">
                             ${sub.images.map(img => `
-                                <img class="detail-gallery-image" src="${img}" alt="${sub.title || 'Image'}" onclick="window.open('${img}', '_blank')">
+                                <img class="detail-gallery-image" src="${img}" alt="${sub.title || 'Image'}" onclick="openLightbox('${img}')">
                             `).join('')}
                         </div>
                     ` : ''}
@@ -340,7 +342,7 @@ function renderDetail(gameId) {
                         </svg>
                         <span class="detail-section-title">${s.title}</span>
                     </div>
-                    ${renderStructuredSection(s.content, s.color, s.icon)}
+                    ${renderStructuredSection(s.content, s.color, s.icon, s.id)}
                 </div>
             `;
         } else {
@@ -389,3 +391,17 @@ function renderDetail(gameId) {
 }
 
 init();
+function openLightbox(imgSrc) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    lightboxImg.src = imgSrc;
+    lightbox.classList.remove('hidden');
+    document.body.classList.add('no-scroll');
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.add('hidden');
+    document.body.classList.remove('no-scroll');
+}

@@ -2,7 +2,7 @@ import os
 import json
 import re
 
-def parse_markdown(file_path):
+def parse_markdown(file_path, image_prefix=""):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
@@ -113,7 +113,7 @@ def parse_markdown(file_path):
 
         return simplify(root_items)
 
-    def parse_structured_section(text):
+    def parse_structured_section(text, keep_text=True):
         if not text: return []
         
         # Split by sub-headers (###)
@@ -124,10 +124,25 @@ def parse_markdown(file_path):
         
         if not matches:
             # If no sub-headers, treat the whole thing as one anonymous section
-            images = re.findall(r'!\[(.*?)\]\((.*?)\)', text)
-            clean_text = re.sub(r'!\[.*?\]\(.*?\)', '', text).strip()
-            if clean_text or images:
-                return [{"title": "", "text": parse_wikilinks(clean_text), "images": [img[1] for img in images]}]
+            # Standard Markdown images
+            images_std = re.findall(r'!\[(.*?)\]\((.*?)\)', text)
+            # Obsidian Wikilink images
+            images_wiki = re.findall(r'!\[\[(.*?)\]\]', text)
+            
+            all_images = [img[1] for img in images_std] + [img for img in images_wiki]
+            # Prefix them
+            all_images = [f"{image_prefix}/{img}" if image_prefix else img for img in all_images]
+
+            # Remove image markdown to get clean text
+            clean_text = re.sub(r'!\[.*?\]\(.*?\)', '', text)
+            clean_text = re.sub(r'!\[\[.*?\]\]', '', clean_text).strip()
+
+            if clean_text or all_images:
+                return [{
+                    "title": "", 
+                    "text": parse_wikilinks(clean_text) if keep_text else "", 
+                    "images": all_images
+                }]
             return []
             
         for i, match in enumerate(matches):
@@ -136,15 +151,22 @@ def parse_markdown(file_path):
             end = matches[i+1].start() if i+1 < len(matches) else len(text)
             content = text[start:end].strip()
             
-            # Extract images from content
-            images = re.findall(r'!\[(.*?)\]\((.*?)\)', content)
+            # Extract both types of images
+            images_std = re.findall(r'!\[(.*?)\]\((.*?)\)', content)
+            images_wiki = re.findall(r'!\[\[(.*?)\]\]', content)
+            
+            all_images = [img[1] for img in images_std] + [img for img in images_wiki]
+            # Prefix them
+            all_images = [f"{image_prefix}/{img}" if image_prefix else img for img in all_images]
+
             # Remove image markdown to get clean text
-            clean_text = re.sub(r'!\[.*?\]\(.*?\)', '', content).strip()
+            clean_text = re.sub(r'!\[.*?\]\(.*?\)', '', content)
+            clean_text = re.sub(r'!\[\[.*?\]\]', '', clean_text).strip()
             
             sub_sections.append({
                 "title": title,
-                "text": parse_wikilinks(clean_text),
-                "images": [img[1] for img in images]
+                "text": parse_wikilinks(clean_text) if keep_text else "",
+                "images": all_images
             })
             
         return sub_sections
@@ -154,7 +176,7 @@ def parse_markdown(file_path):
     sections['poor'] = parse_list(get_section_content(r'## Kötü[ \t]*\n', content))
     sections['terrible'] = parse_list(get_section_content(r'## Berbat[ \t]*\n', content))
     sections['mechanics'] = parse_structured_section(get_section_content(r'# Mekanikler[ \t]*\n', content))
-    sections['uiux'] = parse_structured_section(get_section_content(r'# UI / UX[ \t]*\n', content))
+    sections['uiux'] = parse_structured_section(get_section_content(r'# UI / UX[ \t]*\n', content), keep_text=False)
 
     return {**frontmatter, **sections}
 
@@ -176,7 +198,8 @@ def main():
 
         review_path = os.path.join(folder_path, 'Review.md')
         if os.path.exists(review_path):
-            game_data = parse_markdown(review_path)
+            image_prefix = f"Game Atlas/Games/{game_folder}/Sources"
+            game_data = parse_markdown(review_path, image_prefix=image_prefix)
             game_data['id'] = game_folder.lower().replace(' ', '-')
             game_data['name'] = game_folder
             
