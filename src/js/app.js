@@ -233,9 +233,15 @@ window.handleDropdownSelect = function (gameId, targetId = '') {
         setTimeout(() => {
             const targetEl = document.getElementById(`section-${targetId}`);
             if (targetEl && ui.detailParallax) {
-                targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Add highlight pulse
+                targetEl.classList.add('highlight-pulse');
+                setTimeout(() => {
+                    targetEl.classList.remove('highlight-pulse');
+                }, 4000);
             }
-        }, 100);
+        }, 500);
     }
 }
 
@@ -336,12 +342,30 @@ function renderDetail(gameId) {
     const renderStructuredSection = (sectionData, color, icon, sectionId) => {
         if (!sectionData || sectionData.length === 0) return '';
 
+        if (sectionId === 'uiux') {
+            return `
+                <div class="uiux-gallery">
+                    ${sectionData.map(sub => {
+                const subSectionId = sub.title ? slugify(sub.title) : '';
+                return `
+                            <div class="uiux-card" ${subSectionId ? `id="section-${subSectionId}"` : ''} onclick="openLightbox('${sub.images[0]}')">
+                                <div class="uiux-card-image-wrapper">
+                                    <img class="uiux-card-image" src="${sub.images[0]}" alt="${sub.title || 'Interface'}">
+                                </div>
+                                ${sub.title ? `<div class="uiux-card-caption">${sub.title}</div>` : ''}
+                            </div>
+                        `;
+            }).join('')}
+                </div>
+            `;
+        }
+
         return sectionData.map(sub => {
             const subSectionId = sub.title ? slugify(sub.title) : '';
             return `
                 <div class="detail-subsection" ${subSectionId ? `id="section-${subSectionId}"` : ''}>
                     ${sub.title ? `<div class="detail-subsection-title">${sub.title}</div>` : ''}
-                    ${(sub.text && sectionId !== 'uiux') ? `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>` : ''}
+                    ${sub.text ? `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>` : ''}
                     ${sub.images && sub.images.length > 0 ? `
                         <div class="detail-gallery">
                             ${sub.images.map(img => `
