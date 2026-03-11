@@ -22,8 +22,16 @@ def parse_markdown(file_path, image_prefix=""):
         for line in fm_text.strip().split('\n'):
             if ':' in line and not line.strip().startswith('-'):
                 key, val = line.split(':', 1)
-                if key.strip() != 'tags':
-                    frontmatter[key.strip()] = val.strip()
+                key = key.strip()
+                val = val.strip()
+                if key != 'tags':
+                    # Convert booleans
+                    if val.lower() == 'true':
+                        frontmatter[key] = True
+                    elif val.lower() == 'false':
+                        frontmatter[key] = False
+                    else:
+                        frontmatter[key] = val
 
     # Section extraction using a split approach for better reliability
     sections = {

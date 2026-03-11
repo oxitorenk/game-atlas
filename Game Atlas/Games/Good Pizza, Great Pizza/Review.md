@@ -6,6 +6,7 @@ tags:
   - narrative
   - casual
   - management
+completed: false
 ---
 ## Mükemmel
 - Sanat tasarımı
@@ -16,7 +17,6 @@ tags:
 ## Kötü
 - Ana oynanış döngüsü hızlıca sıkıcılaşıyor, tek devam sebebi narrative oluyor.
 - Upgradeler genelde yaptığın bir şeyi otomatik olarak yapmak üzerine ve oldukça az sayıdalar.
-
 ## Berbat
 - UX tasarımı yaşını belli eden kötü tasarım tercihleriyle dolu.
 	- Pizza kesiciyi kullanmaya karar verdikten sonra işlemi iptal etmenin bir yolu yok.

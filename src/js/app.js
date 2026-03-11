@@ -16,6 +16,7 @@ const ui = {
     backBtn: document.getElementById('back-btn'),
     detailHero: document.getElementById('detail-hero'),
     detailName: document.getElementById('detail-name'),
+    detailStatus: document.getElementById('detail-status'),
     detailSections: document.getElementById('detail-sections'),
     detailParallax: document.getElementById('detail-parallax-container')
 };
@@ -251,7 +252,13 @@ function renderHome() {
     ui.gamesList.className = 'ios-grid';
     ui.gamesList.innerHTML = games.map(game => `
         <div class="ios-grid-card" onclick="navigate('detail', '${game.id}')">
-            <img class="ios-grid-card-image" src="${game.thumbnail || ''}" alt="${game.name}">
+            <div class="ios-grid-card-image-wrapper">
+                <img class="ios-grid-card-image" src="${game.thumbnail || ''}" alt="${game.name}">
+                <div class="ios-grid-card-badge ${game.completed === true ? 'completed' : 'dropped'}">
+                    <span class="badge-icon">${game.completed === true ? '✓' : 'II'}</span>
+                    <span class="badge-text">${game.completed === true ? 'Tamamladım' : 'Yarıda Bıraktım'}</span>
+                </div>
+            </div>
             <div class="ios-grid-card-info">
                 <div class="ios-grid-card-title">${game.name}</div>
                 <div class="ios-grid-card-tag-wrapper">
@@ -266,8 +273,34 @@ function renderDetail(gameId) {
     const game = _state.games.find(g => g.id === gameId);
     if (!game) return;
 
+    const iconPaths = {
+        'star.fill': 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
+        'hand.thumbsup.fill': 'M13.12 2.06L7.58 7.6c-.37.37-.58.88-.58 1.41V19c0 1.1.9 2 2 2h9c.8 0 1.52-.48 1.84-1.21l3.26-7.61C23.94 10.2 23.94 10 23.94 9.8c0-1.1-.9-2-2-2H14.69l.92-4.44c.08-.34 0-.7-.21-.99-.21-.29-.54-.46-.9-.46h-.5l-.88.15z',
+        'hand.point.down.fill': 'M11 2h2v10.24l3.29-3.29 1.42 1.42L12 16.08l-5.71-5.71 1.42-1.42L11 12.24V2zM7 18h10v2H7v-2z',
+        'hand.thumbsdown.fill': 'M10.88 21.94l5.54-5.54c.37-.37.58-.88.58-1.41V5c0-1.1-.9-2-2-2H6c-.8 0-1.52.48-1.84 1.21L.9 11.82c-.06.14-.09.31-.09.49 0 1.1.9 2 2 2h7.25l-.92 4.44c-.08.34 0 .7.21.99.21.29.54.46.9.46h.5l.88-.15z',
+        'gearshape.fill': 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z',
+        'eye.fill': 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
+        'checkmark': 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z',
+        'pause': 'M6 19h4V5H6v14zm8-14v14h4V5h-4z'
+    };
+
     ui.detailHero.src = game.hero || '';
     ui.detailName.textContent = game.name;
+
+    // Status Badge
+    const isCompleted = game.completed === true;
+    const statusText = isCompleted ? 'Tamamladım' : 'Yarıda Bıraktım';
+    const statusClass = isCompleted ? 'status-badge-completed' : 'status-badge-dropped';
+    const statusIcon = isCompleted ? 'checkmark' : 'pause';
+
+    ui.detailStatus.innerHTML = `
+        <div class="status-badge ${statusClass}">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="${iconPaths[statusIcon]}"/>
+            </svg>
+            <span>${statusText}</span>
+        </div>
+    `;
 
     const sections = [
         { id: 'perfect', title: 'MÜKEMMEL', icon: 'star.fill', color: '#FFD60A', content: game.perfect },
@@ -277,15 +310,6 @@ function renderDetail(gameId) {
         { id: 'mechanics', title: 'MEKANİKLER', icon: 'gearshape.fill', color: '#0A84FF', content: game.mechanics },
         { id: 'uiux', title: 'ARAYÜZ / DENEYİM', icon: 'eye.fill', color: '#AF52DE', content: game.uiux }
     ];
-
-    const iconPaths = {
-        'star.fill': 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
-        'hand.thumbsup.fill': 'M13.12 2.06L7.58 7.6c-.37.37-.58.88-.58 1.41V19c0 1.1.9 2 2 2h9c.8 0 1.52-.48 1.84-1.21l3.26-7.61C23.94 10.2 23.94 10 23.94 9.8c0-1.1-.9-2-2-2H14.69l.92-4.44c.08-.34 0-.7-.21-.99-.21-.29-.54-.46-.9-.46h-.5l-.88.15z',
-        'hand.point.down.fill': 'M11 2h2v10.24l3.29-3.29 1.42 1.42L12 16.08l-5.71-5.71 1.42-1.42L11 12.24V2zM7 18h10v2H7v-2z',
-        'hand.thumbsdown.fill': 'M10.88 21.94l5.54-5.54c.37-.37.58-.88.58-1.41V5c0-1.1-.9-2-2-2H6c-.8 0-1.52.48-1.84 1.21L.9 11.82c-.06.14-.09.31-.09.49 0 1.1.9 2 2 2h7.25l-.92 4.44c-.08.34 0 .7.21.99.21.29.54.46.9.46h.5l.88-.15z',
-        'gearshape.fill': 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z',
-        'eye.fill': 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z'
-    };
 
     const renderList = (items, iconClass) => {
         if (!items || items.length === 0) return '';

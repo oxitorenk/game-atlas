@@ -386,6 +386,52 @@ body {
     padding: 8px 4px;
 }
 
+.ios-grid-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.ios-grid-card-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-icon {
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.badge-text {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.ios-grid-card-badge.completed {
+    background-color: rgba(50, 215, 75, 0.85);
+    color: #FFFFFF;
+}
+
+.ios-grid-card-badge.dropped {
+    background-color: rgba(255, 159, 10, 0.85);
+    color: #FFFFFF;
+}
+
 .ios-grid-card-tag-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -653,6 +699,7 @@ body {
     background-color: #1C1C1E;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
 #lightbox {
     position: fixed;
     top: 0;
@@ -693,4 +740,32 @@ body {
 
 .no-scroll {
     overflow: hidden !important;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 16px 16px 0 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-badge-completed {
+    background-color: rgba(50, 215, 75, 0.15);
+    color: #32D74B;
+}
+
+.status-badge-dropped {
+    background-color: rgba(255, 159, 10, 0.15);
+    color: #FF9F0A;
+}
+
+.status-badge svg {
+    width: 14px;
+    height: 14px;
 }

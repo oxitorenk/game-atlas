@@ -1,5 +1,6 @@
 ---
 tags:
+completed: false
 ---
 ## Mükemmel
 
