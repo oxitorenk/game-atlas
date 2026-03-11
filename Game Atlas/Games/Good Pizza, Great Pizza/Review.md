@@ -9,48 +9,44 @@ tags:
 completed: false
 ---
 ## Mükemmel
-- Sanat tasarımı
+- Sanat tasarımına bayıldım. Adeta el çizimi bir masal kitabının içinde pizza yapıyormuşum gibi hissettim.
+
 ## İyi
-- Narrative.
-- Ses Efektleri.
-- [[#Bahçe]] mekaniği.
+- Hikaye akışı ve karakterlerle olan etkileşimlerim beni çok sardı.
+- Ses efektleri inanılmaz tatmin edici.
+- [[#Bahçe]] mekaniği benim için harika bir nefes alma noktası oldu.
+
 ## Kötü
-- Ana oynanış döngüsü hızlıca sıkıcılaşıyor, tek devam sebebi narrative oluyor.
-- Upgradeler genelde yaptığın bir şeyi otomatik olarak yapmak üzerine ve oldukça az sayıdalar.
+- Ana oynanış döngüsü bir süre sonra beni sıkmaya başladı. Bir noktadan sonra sadece hikayede neler olacağını merak ettiğim için oynamaya devam ettim.
+- Yükseltmeler bana biraz yetersiz geldi. Genelde sadece yaptığım işleri otomatiğe bağlamaya yarıyorlar ve pek de yaratıcı değiller.
+
 ## Berbat
-- UX tasarımı yaşını belli eden kötü tasarım tercihleriyle dolu.
-	- Pizza kesiciyi kullanmaya karar verdikten sonra işlemi iptal etmenin bir yolu yok.
-- PC versiyonu da tıpkı mobil versiyonları gibi oyun içi satın alımlarla dolu.
-- PC versiyonu defalarca cloud save problemi çıkartıp oyunu oynanamaz hale getirdi, iade etmek zorunda kaldım.
+- Kullanıcı deneyimi (UX) konusunda çok zorlandım; günümüz standartlarının çok gerisinde ve eski hissettiren tercihlerle dolu.
+	- Mesela pizza kesiciyi bir kez elime aldım mı artık geri dönüşüm olmuyor; o işlemi illa bitirmem gerekiyor. Yanlış bir şey yapsam bile iptal edememek beni çok gerdi.
+- PC versiyonunun her yerinden mobil oyun davranışları akıyor; her köşe başında karşıma çıkan oyun içi satın alımlar (IAP), "bedava oyun" hissiyatı vererek keyfimi kaçırdı.
+- Teknik olarak tam bir fiyasko yaşadım. Cloud save problemleri yüzünden saatlerce verdiğim emek defalarca silindi. Oyunun bu şekilde oynanamaz hale gelmesi benim için bardağı taşıran son damla oldu ve iade etmek zorunda kaldım.
 # Mekanikler
 ### Bahçe
-* Bahçe mekaniği ekstra bir katman daha ekleyerek oynanışı bi süreliğine tazeliyor.
-* Sebze ve meyvelerini yetiştirip ücretsiz bir şekilde pizzaya eklemek keyifli.
+![[bahçe.jpeg]]
+* Bahçe mekaniği, oyunun rutinleşen temposuna taze bir soluk getiriyor.
+* Kendi yetiştirdiğim  sebze ve meyveleri pizzalara eklemek çok keyifli.
 
 # UI / UX
-### Ana Menü
+### Menu
 ![[ana-menü.jpeg]]
-### Ana Menü - Hızlı Erişim Dropdown
-![[ana-menü-hızlı-erişim.jpeg]]
-### Ayarlar
+### Settings
 ![[ayarlar.jpeg]]
-### IAP Mağazası
-![[iap.jpeg]]
+
 ### MyPad
 ![[mypad.jpeg]]
-### Bahçe
-![[bahçe.jpeg]]
-### Başarımlar
+### Achievements
 ![[başarımlar.jpeg]]
-### Görevler
+### Missions
 ![[görevler.jpeg]]
-### Hikayeler
+### Stories
 ![[hikayeler.jpeg]]
-### Kasa
-![[kasa.jpeg]]
-### Mutfak
-![[mutfak.jpeg]]
-### Rehber
+
+### Guide
 ![[kitap.jpeg]]
-### Mağaza
+### Store
 ![[mağaza.jpeg]]

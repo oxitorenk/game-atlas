@@ -362,10 +362,30 @@ function renderDetail(gameId) {
 
         return sectionData.map(sub => {
             const subSectionId = sub.title ? slugify(sub.title) : '';
+            
+            let contentHtml = '';
+            if (sub.text) {
+                if (sectionId === 'mechanics') {
+                    // Check if the text is a markdown list
+                    const listItems = sub.text.split('\n').filter(line => line.trim().startsWith('*'));
+                    if (listItems.length > 0) {
+                        contentHtml = `
+                            <ul class="mechanics-list">
+                                ${listItems.map(item => `<li>${item.trim().replace(/^\*\s*/, '')}</li>`).join('')}
+                            </ul>
+                        `;
+                    } else {
+                        contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
+                    }
+                } else {
+                    contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
+                }
+            }
+
             return `
                 <div class="detail-subsection" ${subSectionId ? `id="section-${subSectionId}"` : ''}>
                     ${sub.title ? `<div class="detail-subsection-title">${sub.title}</div>` : ''}
-                    ${sub.text ? `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>` : ''}
+                    ${contentHtml}
                     ${sub.images && sub.images.length > 0 ? `
                         <div class="detail-gallery">
                             ${sub.images.map(img => `
