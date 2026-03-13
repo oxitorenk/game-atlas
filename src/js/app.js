@@ -170,14 +170,14 @@ function renderSearchDropdown() {
     _state.games.forEach(g => {
         // Name match
         if (g.name.toLowerCase().includes(query)) {
-            results.push({ game: g, type: 'Oyun', label: g.name, target: '' });
+            results.push({ game: g, type: 'Game', label: g.name, target: '' });
         }
 
         // Tag match
         if (g.tags) {
             g.tags.forEach(t => {
                 if (t.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Etiket', label: t, target: '' });
+                    results.push({ game: g, type: 'Tag', label: t, target: '' });
                 }
             });
         }
@@ -186,7 +186,7 @@ function renderSearchDropdown() {
         if (g.mechanics) {
             g.mechanics.forEach(m => {
                 if (m.title && m.title.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Mekanik', label: m.title, target: slugify(m.title) });
+                    results.push({ game: g, type: 'Mechanic', label: m.title, target: slugify(m.title) });
                 }
             });
         }
@@ -195,14 +195,14 @@ function renderSearchDropdown() {
         if (g.uiux) {
             g.uiux.forEach(u => {
                 if (u.title && u.title.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Arayüz', label: u.title, target: slugify(u.title) });
+                    results.push({ game: g, type: 'Interface', label: u.title, target: slugify(u.title) });
                 }
             });
         }
     });
 
     if (results.length === 0) {
-        ui.searchDropdown.innerHTML = '<div class="search-dropdown-empty">Sonuç bulunamadı.</div>';
+        ui.searchDropdown.innerHTML = '<div class="search-dropdown-empty">No results found.</div>';
     } else {
         ui.searchDropdown.innerHTML = results.map(res => `
             <div class="search-dropdown-item" onclick="handleDropdownSelect('${res.game.id}', '${res.target}')">
@@ -234,7 +234,7 @@ window.handleDropdownSelect = function (gameId, targetId = '') {
             const targetEl = document.getElementById(`section-${targetId}`);
             if (targetEl && ui.detailParallax) {
                 targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
+
                 // Add highlight pulse
                 targetEl.classList.add('highlight-pulse');
                 setTimeout(() => {
@@ -250,7 +250,7 @@ function renderHome() {
     const games = _state.games;
 
     if (games.length === 0) {
-        ui.gamesList.innerHTML = '<div class="ios-cell"><div class="ios-cell-content"><span class="ios-cell-label">Oyun bulunamadı.</span></div></div>';
+        ui.gamesList.innerHTML = '<div class="ios-cell"><div class="ios-cell-content"><span class="ios-cell-label">Game not found.</span></div></div>';
         ui.gamesList.className = 'ios-list';
         return;
     }
@@ -262,7 +262,7 @@ function renderHome() {
                 <img class="ios-grid-card-image" src="${game.thumbnail || ''}" alt="${game.name}">
                 <div class="ios-grid-card-badge ${game.completed === true ? 'completed' : 'dropped'}">
                     <span class="badge-icon">${game.completed === true ? '✓' : 'II'}</span>
-                    <span class="badge-text">${game.completed === true ? 'Tamamladım' : 'Yarıda Bıraktım'}</span>
+                    <span class="badge-text">${game.completed === true ? 'Completed' : 'Dropped'}</span>
                 </div>
             </div>
             <div class="ios-grid-card-info">
@@ -295,7 +295,7 @@ function renderDetail(gameId) {
 
     // Status Badge
     const isCompleted = game.completed === true;
-    const statusText = isCompleted ? 'Tamamladım' : 'Yarıda Bıraktım';
+    const statusText = isCompleted ? 'Completed' : 'Dropped';
     const statusClass = isCompleted ? 'status-badge-completed' : 'status-badge-dropped';
     const statusIcon = isCompleted ? 'checkmark' : 'pause';
 
@@ -309,12 +309,12 @@ function renderDetail(gameId) {
     `;
 
     const sections = [
-        { id: 'perfect', title: 'MÜKEMMEL', icon: 'star.fill', color: '#FFD60A', content: game.perfect },
-        { id: 'good', title: 'İYİ', icon: 'hand.thumbsup.fill', color: '#32D74B', content: game.good },
-        { id: 'poor', title: 'KÖTÜ', icon: 'hand.point.down.fill', color: '#FF9F0A', content: game.poor },
-        { id: 'terrible', title: 'BERBAT', icon: 'hand.thumbsdown.fill', color: '#FF453A', content: game.terrible },
-        { id: 'mechanics', title: 'MEKANİKLER', icon: 'gearshape.fill', color: '#0A84FF', content: game.mechanics },
-        { id: 'uiux', title: 'ARAYÜZ / DENEYİM', icon: 'eye.fill', color: '#AF52DE', content: game.uiux }
+        { id: 'perfect', title: 'PERFECT', icon: 'star.fill', color: '#FFD60A', content: game.perfect },
+        { id: 'good', title: 'GOOD', icon: 'hand.thumbsup.fill', color: '#32D74B', content: game.good },
+        { id: 'poor', title: 'POOR', icon: 'hand.point.down.fill', color: '#FF9F0A', content: game.poor },
+        { id: 'terrible', title: 'TERRIBLE', icon: 'hand.thumbsdown.fill', color: '#FF453A', content: game.terrible },
+        { id: 'mechanics', title: 'MECHANICS', icon: 'gearshape.fill', color: '#0A84FF', content: game.mechanics },
+        { id: 'uiux', title: 'UI / UX', icon: 'eye.fill', color: '#AF52DE', content: game.uiux }
     ];
 
     const renderList = (items, iconClass) => {
@@ -362,7 +362,7 @@ function renderDetail(gameId) {
 
         return sectionData.map(sub => {
             const subSectionId = sub.title ? slugify(sub.title) : '';
-            
+
             let contentHtml = '';
             if (sub.text) {
                 if (sectionId === 'mechanics') {
@@ -462,7 +462,7 @@ init();
 function openLightbox(imgSrc) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    
+
     lightboxImg.src = imgSrc;
     lightbox.classList.remove('hidden');
     document.body.classList.add('no-scroll');

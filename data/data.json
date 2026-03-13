@@ -8,24 +8,24 @@
     ],
     "completed": false,
     "perfect": [
-      "<a href=\"#Hafıza\" class=\"wiki-link\">Hafıza</a> mekanizmasına tek kelimeyle bayıldım. Oyunun \"bir sonraki adım ne?\" sorusunu bu kadar doğal bir şekilde çözmesi inanılmaz.",
-      "Yaratılan o muazzam gizem ve hikaye çok keyifli.",
-      "Sanat tasarımı ve o kendine has görsel dil, oyunun melankolik ama merak uyandıran atmosferini mükemmel tamamlamış."
+      "I absolutely loved the <a href=\"#Journal\" class=\"wiki-link\">Journal</a> mechanic. It's incredible how the game solves the \"what's the next step?\" question so naturally.",
+      "The immense mystery and story created are very enjoyable.",
+      "The art design and that unique visual language perfectly complemented the game's melancholic yet intriguing atmosphere."
     ],
     "good": [
-      "Uzay gemimizle gezegenler arasında dolaşmak, o uçsuz bucaksız boşlukta kaybolmak başlangıçta çok keyifliydi."
+      "Traveling between planets with our spaceship and getting lost in that vast void was very enjoyable at first."
     ],
     "poor": [
-      "Diyaloglarda seslendirme olmasını çok isterdim; o derin hikayeyi karakterlerin sesinden duymak atmosferi bambaşka bir seviyeye taşırdı.",
-      "Gemi ve karakter kontrollerine alışmak benim için biraz zaman aldı, bazen hantal hissettirebiliyor.",
-      "Benzer keşifleri ve yolları tekrar tekrar yürümek zorunda kalmak bir noktadan sonra sabrımı zorladı.",
-      "Gizemleri çözmek çok eğlenceli olsa da, saf oynanış mekanikleri  çok kolay tekrara düşüyor ve \"oyun\" kısmı keşif heyecanının gerisinde kalıyor."
+      "I really wished there was voice acting in the dialogues; hearing that deep story from the characters' voices would have taken the atmosphere to a whole new level.",
+      "It took me some time to get used to the ship and character controls; they can feel clunky at times.",
+      "Having to walk through similar discoveries and paths over and over again tested my patience after a certain point.",
+      "While solving mysteries is very fun, the pure gameplay mechanics fall into repetition quite easily, and the \"game\" part lags behind the excitement of discovery."
     ],
     "terrible": [],
     "mechanics": [
       {
-        "title": "Hafıza",
-        "text": "* Oyundaki \"şimdi ne yapacağım?\" çıkmazını tamamen ortadan kaldıran harika bir sistem.\n* Soru işaretlerinin peşinden gidip o devasa gizemi parça parça çözmek bana inanılmaz bir tatmin duygusu verdi.\n* Ölüp her şeye en baştan başlamak bile bu mekanik sayesinde sinir bozucu olmaktan çıkıp anlamlı bir sürece dönüştü.",
+        "title": "Journal",
+        "text": "* A great system that completely eliminates the \"what do I do now?\" dilemma in the game.\n* Following the question marks and solving that giant mystery piece by piece gave me an incredible sense of satisfaction.\n* Even dying and starting everything from the beginning turned from a frustrating experience into a meaningful process thanks to this mechanic.",
         "images": [
           "Game Atlas/Games/Outer Wilds/Sources/journal.jpg"
         ]
@@ -77,31 +77,31 @@
     ],
     "completed": false,
     "perfect": [
-      "Sanat tasarımına bayıldım. Adeta el çizimi bir masal kitabının içinde pizza yapıyormuşum gibi hissettim."
+      "I loved the art design. I felt like I was making pizza inside a hand-drawn fairy tale book."
     ],
     "good": [
-      "Hikaye akışı ve karakterlerle olan etkileşimlerim beni çok sardı.",
-      "Ses efektleri inanılmaz tatmin edici.",
-      "<a href=\"#Bahçe\" class=\"wiki-link\">Bahçe</a> mekaniği benim için harika bir nefes alma noktası oldu."
+      "The story flow and interactions with characters really sucked me in.",
+      "The sound effects are incredibly satisfying.",
+      "The <a href=\"#Garden\" class=\"wiki-link\">Garden</a> mechanic was a great breathing point for me."
     ],
     "poor": [
-      "Ana oynanış döngüsü bir süre sonra beni sıkmaya başladı. Bir noktadan sonra sadece hikayede neler olacağını merak ettiğim için oynamaya devam ettim.",
-      "Yükseltmeler bana biraz yetersiz geldi. Genelde sadece yaptığım işleri otomatiğe bağlamaya yarıyorlar ve pek de yaratıcı değiller."
+      "The core gameplay loop started to bore me after a while. At one point, I only kept playing because I was curious about what would happen in the story.",
+      "The upgrades felt a bit insufficient to me. They generally only serve to automate the tasks I do and are not very creative."
     ],
     "terrible": [
       {
-        "text": "Kullanıcı deneyimi (UX) konusunda çok zorlandım; günümüz standartlarının çok gerisinde ve eski hissettiren tercihlerle dolu.",
+        "text": "I struggled a lot with User Experience (UX); it's full of choices that feel way behind today's standards and outdated.",
         "children": [
-          "Mesela pizza kesiciyi bir kez elime aldım mı artık geri dönüşüm olmuyor; o işlemi illa bitirmem gerekiyor. Yanlış bir şey yapsam bile iptal edememek beni çok gerdi."
+          "For example, once I pick up the pizza cutter, there's no going back; I must finish that process. Being unable to cancel even if I do something wrong really stressed me out."
         ]
       },
-      "PC versiyonunun her yerinden mobil oyun davranışları akıyor; her köşe başında karşıma çıkan oyun içi satın alımlar (IAP), \"bedava oyun\" hissiyatı vererek keyfimi kaçırdı.",
-      "Teknik olarak tam bir fiyasko yaşadım. Cloud save problemleri yüzünden saatlerce verdiğim emek defalarca silindi. Oyunun bu şekilde oynanamaz hale gelmesi benim için bardağı taşıran son damla oldu ve iade etmek zorunda kaldım."
+      "The PC version reeks of mobile game behavior everywhere; the in-game purchases (IAP) I encountered at every corner ruined my enjoyment by giving a \"free-to-play\" feel.",
+      "Technically, I experienced a complete fiasco. Due to cloud save problems, hours of my effort were deleted multiple times. The game becoming unplayable this way was the final straw for me, and I had to return it."
     ],
     "mechanics": [
       {
-        "title": "Bahçe",
-        "text": "* Bahçe mekaniği, oyunun rutinleşen temposuna taze bir soluk getiriyor.\n* Kendi yetiştirdiğim  sebze ve meyveleri pizzalara eklemek çok keyifli.",
+        "title": "Garden",
+        "text": "* The garden mechanic brings a fresh breath to the game's routine pace.\n* Adding vegetables and fruits I grew myself to the pizzas is very enjoyable.",
         "images": [
           "Game Atlas/Games/Good Pizza, Great Pizza/Sources/bahçe.jpeg"
         ]
