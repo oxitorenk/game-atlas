@@ -15,6 +15,7 @@ const ui = {
     searchDropdown: document.getElementById('search-dropdown'),
     backBtn: document.getElementById('back-btn'),
     detailHero: document.getElementById('detail-hero'),
+    detailHeroBlur: document.getElementById('detail-hero-blur'),
     detailName: document.getElementById('detail-name'),
     detailStatus: document.getElementById('detail-status'),
     detailSections: document.getElementById('detail-sections'),
@@ -138,6 +139,7 @@ function updateViewDOM() {
     if (_state.currentView === 'detail') {
         ui.detailParallax.scrollTop = 0;
         ui.backToTopBtn.classList.add('hidden');
+        ui.detailHeroBlur.style.opacity = 0;
     }
 }
 
@@ -310,6 +312,7 @@ function renderDetail(gameId) {
     };
 
     ui.detailHero.src = game.hero || '';
+    ui.detailHeroBlur.src = game.hero || '';
     ui.detailName.textContent = game.name;
 
     // Status Badge
@@ -460,11 +463,16 @@ function renderDetail(gameId) {
         if (!ticking) {
             window.requestAnimationFrame(() => {
                 const scrollTop = ui.detailParallax.scrollTop;
-                const blurVal = Math.min(scrollTop / 15, 12);
+                
+                // PERFORMANCE OPTIMIZATION: 
+                // Using opacity blending instead of real-time filter:blur() updates.
+                const blurOpacity = Math.min(scrollTop / 200, 1); 
                 const scaleVal = 1 + (scrollTop / 1000);
+                const transformVal = `scale(${scaleVal}) translateY(${scrollTop * 0.3}px)`;
 
-                ui.detailHero.style.filter = `blur(${blurVal}px)`;
-                ui.detailHero.style.transform = `scale(${scaleVal}) translateY(${scrollTop * 0.3}px)`;
+                ui.detailHeroBlur.style.opacity = blurOpacity;
+                ui.detailHero.style.transform = transformVal;
+                ui.detailHeroBlur.style.transform = transformVal;
 
                 ticking = false;
             });
@@ -474,8 +482,9 @@ function renderDetail(gameId) {
 
     // The scroll reset logic is now handled globally in updateViewDOM 
     // to ensure it triggers after the view is made visible.
-    ui.detailHero.style.filter = 'blur(0px)';
     ui.detailHero.style.transform = 'scale(1) translateY(0px)';
+    ui.detailHeroBlur.style.transform = 'scale(1) translateY(0px)';
+    ui.detailHeroBlur.style.opacity = 0;
 }
 
 init();
