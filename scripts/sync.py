@@ -179,12 +179,12 @@ def parse_markdown(file_path, image_prefix=""):
             
         return sub_sections
 
-    sections['perfect'] = parse_list(get_section_content(r'## Mükemmel[ \t]*\n', content))
-    sections['good'] = parse_list(get_section_content(r'## İyi[ \t]*\n', content))
-    sections['poor'] = parse_list(get_section_content(r'## Kötü[ \t]*\n', content))
-    sections['terrible'] = parse_list(get_section_content(r'## Berbat[ \t]*\n', content))
-    sections['mechanics'] = parse_structured_section(get_section_content(r'# Mekanikler[ \t]*\n', content))
-    sections['uiux'] = parse_structured_section(get_section_content(r'# UI / UX[ \t]*\n', content), keep_text=False)
+    sections['perfect'] = parse_list(get_section_content(r'## Perfect[ \t]*\n', content))
+    sections['good'] = parse_list(get_section_content(r'## Good[ \t]*\n', content))
+    sections['poor'] = parse_list(get_section_content(r'## Poor[ \t]*\n', content))
+    sections['terrible'] = parse_list(get_section_content(r'## Terrible[ \t]*\n', content))
+    sections['mechanics'] = parse_structured_section(get_section_content(r'## Mechanics[ \t]*\n', content))
+    sections['uiux'] = parse_structured_section(get_section_content(r'## UI / UX[ \t]*\n', content), keep_text=False)
 
     return {**frontmatter, **sections}
 

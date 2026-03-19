@@ -9,23 +9,23 @@
     "completed": false,
     "perfect": [
       "I absolutely loved the <a href=\"#Journal\" class=\"wiki-link\">Journal</a> mechanic. It's incredible how the game solves the \"what's the next step?\" question so naturally.",
-      "The immense mystery and story created are very enjoyable.",
-      "The art design and that unique visual language perfectly complemented the game's melancholic yet intriguing atmosphere."
+      "The massive mystery and story created are very enjoyable.",
+      "The art design and its unique visual language perfectly complemented the game's melancholic yet intriguing atmosphere."
     ],
     "good": [
       "Traveling between planets with our spaceship and getting lost in that vast void was very enjoyable at first."
     ],
     "poor": [
-      "I really wished there was voice acting in the dialogues; hearing that deep story from the characters' voices would have taken the atmosphere to a whole new level.",
-      "It took me some time to get used to the ship and character controls; they can feel clunky at times.",
-      "Having to walk through similar discoveries and paths over and over again tested my patience after a certain point.",
-      "While solving mysteries is very fun, the pure gameplay mechanics fall into repetition quite easily, and the \"game\" part lags behind the excitement of discovery."
+      "I wish there were voice-overs in the dialogues; hearing that deep story from the characters' voices would have taken the atmosphere to a whole different level.",
+      "It took me some time to get used to the ship and character controls; they can feel clunky sometimes.",
+      "Having to walkthrough through similar explorations and paths repeatedly tried my patience after a certain point.",
+      "Although solving mysteries is a lot of fun, pure gameplay mechanics fall into repetition very easily and the \"game\" part falls behind the excitement of exploration."
     ],
     "terrible": [],
     "mechanics": [
       {
         "title": "Journal",
-        "text": "* A great system that completely eliminates the \"what do I do now?\" dilemma in the game.\n* Following the question marks and solving that giant mystery piece by piece gave me an incredible sense of satisfaction.\n* Even dying and starting everything from the beginning turned from a frustrating experience into a meaningful process thanks to this mechanic.",
+        "text": "* A great system that completely eliminates the \"what am I going to do now?\" dilemma in the game.\n* Following the question marks and solving that huge mystery piece by piece gave me an incredible sense of satisfaction.\n* Even dying and starting everything from the beginning turned from being frustrating into a meaningful process thanks to this mechanic.",
         "images": [
           "Game Atlas/Games/Outer Wilds/Sources/journal.jpg"
         ]
@@ -36,14 +36,14 @@
         "title": "Menu",
         "text": "",
         "images": [
-          "Game Atlas/Games/Outer Wilds/Sources/anamenu.jpg"
+          "Game Atlas/Games/Outer Wilds/Sources/main_menu.jpg"
         ]
       },
       {
         "title": "Settings",
         "text": "",
         "images": [
-          "Game Atlas/Games/Outer Wilds/Sources/ayarlar.jpg"
+          "Game Atlas/Games/Outer Wilds/Sources/settings.jpg"
         ]
       },
       {
@@ -57,7 +57,7 @@
         "title": "Pause",
         "text": "",
         "images": [
-          "Game Atlas/Games/Outer Wilds/Sources/duraklatma.jpg"
+          "Game Atlas/Games/Outer Wilds/Sources/pause.jpg"
         ]
       }
     ],
@@ -65,6 +65,41 @@
     "name": "Outer Wilds",
     "hero": "Game Atlas/Games/Outer Wilds/Sources/hero.png",
     "thumbnail": "Game Atlas/Games/Outer Wilds/Sources/thumbnail.jpg"
+  },
+  {
+    "tags": [
+      "RPG",
+      "Open-World",
+      "FPS",
+      "Dark-Fantasy"
+    ],
+    "completed": false,
+    "perfect": [
+      "The art direction is simply breathtaking. The meticulous design of characters, environments, and equipment is so compelling that I often found myself just stopping to take it all in."
+    ],
+    "good": [
+      "For the first time since Skyrim, I've truly felt that spark of joy while losing myself in an open-world RPG.",
+      "The game is brimming with a surprising amount of unique, handcrafted content."
+    ],
+    "poor": [
+      "The main narrative feels somewhat lackluster and fails to leave a lasting impression.",
+      "Combat starts off with promise but quickly falters. Poor difficulty balancing turns enemies into tedious \"bullet sponges\" by the second chapter.",
+      "Frequent bugs, while rarely game-breaking, are persistent enough to occasionally sour the experience.",
+      "Side content begins to lose its charm and feels noticeably less polished starting from the second chapter.",
+      "The lack of an option to cancel active quests is a frustrating oversight.",
+      "Inventory management is cumbersome and frequently feels like a chore."
+    ],
+    "terrible": [
+      "The AI is abysmal, consistently failing to create any sense of tactical or meaningful combat.",
+      "The game balance is a disaster. One moment you're an unstoppable force, the next you're being one-shotted. It's incredibly inconsistent across regions.",
+      "It took over seven grueling hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying."
+    ],
+    "mechanics": [],
+    "uiux": [],
+    "id": "tainted-grail---the-fall-of-avalon",
+    "name": "Tainted Grail - The Fall of Avalon",
+    "hero": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/hero.jpg",
+    "thumbnail": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/thumbnail.jpg"
   },
   {
     "tags": [
@@ -77,33 +112,33 @@
     ],
     "completed": false,
     "perfect": [
-      "I loved the art design. I felt like I was making pizza inside a hand-drawn fairy tale book."
+      "I loved the art design. It felt like I was making pizza inside a hand-drawn fairy tale book."
     ],
     "good": [
-      "The story flow and interactions with characters really sucked me in.",
+      "The story progression and my interactions with the characters really hooked me.",
       "The sound effects are incredibly satisfying.",
-      "The <a href=\"#Garden\" class=\"wiki-link\">Garden</a> mechanic was a great breathing point for me."
+      "The <a href=\"#Garden\" class=\"wiki-link\">Garden</a> mechanics were a great breathing point for me."
     ],
     "poor": [
-      "The core gameplay loop started to bore me after a while. At one point, I only kept playing because I was curious about what would happen in the story.",
-      "The upgrades felt a bit insufficient to me. They generally only serve to automate the tasks I do and are not very creative."
+      "The main gameplay loop started to bore me after a while. At some point, I kept playing just because I was curious about what would happen in the story.",
+      "The upgrades felt a bit insufficient to me. They generally just serve to automate the tasks I do and are not very creative."
     ],
     "terrible": [
       {
         "text": "I struggled a lot with User Experience (UX); it's full of choices that feel way behind today's standards and outdated.",
         "children": [
-          "For example, once I pick up the pizza cutter, there's no going back; I must finish that process. Being unable to cancel even if I do something wrong really stressed me out."
+          "For example, once I pick up the pizza cutter, there's no turning back; I have to finish that operation. Not being able to cancel even if I do something wrong stressed me out a lot."
         ]
       },
-      "The PC version reeks of mobile game behavior everywhere; the in-game purchases (IAP) I encountered at every corner ruined my enjoyment by giving a \"free-to-play\" feel.",
-      "Technically, I experienced a complete fiasco. Due to cloud save problems, hours of my effort were deleted multiple times. The game becoming unplayable this way was the final straw for me, and I had to return it."
+      "Mobile game behaviors flow from every part of the PC version; in-game purchases (IAP) appearing at every corner ruined my enjoyment by giving a \"free game\" feeling.",
+      "I experienced a complete technical fiasco. Because of cloud save problems, the effort I put in for hours was deleted several times. The game becoming unplayable in this way was the last straw for me and I had to return it."
     ],
     "mechanics": [
       {
         "title": "Garden",
-        "text": "* The garden mechanic brings a fresh breath to the game's routine pace.\n* Adding vegetables and fruits I grew myself to the pizzas is very enjoyable.",
+        "text": "* The garden mechanic brings a fresh breath to the game's routine pace.\n* Adding the vegetables and fruits I grow myself to the pizzas is very enjoyable.",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/bahçe.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/garden.jpeg"
         ]
       }
     ],
@@ -112,14 +147,14 @@
         "title": "Menu",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/ana-menü.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/main_menu.jpeg"
         ]
       },
       {
         "title": "Settings",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/ayarlar.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/settings.jpeg"
         ]
       },
       {
@@ -133,35 +168,35 @@
         "title": "Achievements",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/başarımlar.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/achievements.jpeg"
         ]
       },
       {
         "title": "Missions",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/görevler.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/missions.jpeg"
         ]
       },
       {
         "title": "Stories",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hikayeler.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/stories.jpeg"
         ]
       },
       {
         "title": "Guide",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/kitap.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/book.jpeg"
         ]
       },
       {
         "title": "Store",
         "text": "",
         "images": [
-          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/mağaza.jpeg"
+          "Game Atlas/Games/Good Pizza, Great Pizza/Sources/store.jpeg"
         ]
       }
     ],

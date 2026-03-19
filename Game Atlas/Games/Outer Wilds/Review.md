@@ -6,33 +6,31 @@ tags:
   - mystery
 completed: false
 ---
-## Mükemmel
-- [[#Hafıza]] mekanizmasına tek kelimeyle bayıldım. Oyunun "bir sonraki adım ne?" sorusunu bu kadar doğal bir şekilde çözmesi inanılmaz.
-- Yaratılan o muazzam gizem ve hikaye çok keyifli.
-- Sanat tasarımı ve o kendine has görsel dil, oyunun melankolik ama merak uyandıran atmosferini mükemmel tamamlamış.
+## Perfect
+- I absolutely loved the [[#Journal]] mechanic. It's incredible how the game solves the "what's the next step?" question so naturally.
+- The massive mystery and story created are very enjoyable.
+- The art design and its unique visual language perfectly complemented the game's melancholic yet intriguing atmosphere.
+## Good
+- Traveling between planets with our spaceship and getting lost in that vast void was very enjoyable at first.
+## Poor
+- I wish there were voice-overs in the dialogues; hearing that deep story from the characters' voices would have taken the atmosphere to a whole different level.
+- It took me some time to get used to the ship and character controls; they can feel clunky sometimes.
+- Having to walkthrough through similar explorations and paths repeatedly tried my patience after a certain point.
+- Although solving mysteries is a lot of fun, pure gameplay mechanics fall into repetition very easily and the "game" part falls behind the excitement of exploration.
 
-## İyi
-- Uzay gemimizle gezegenler arasında dolaşmak, o uçsuz bucaksız boşlukta kaybolmak başlangıçta çok keyifliydi.
-
-## Kötü
-- Diyaloglarda seslendirme olmasını çok isterdim; o derin hikayeyi karakterlerin sesinden duymak atmosferi bambaşka bir seviyeye taşırdı.
-- Gemi ve karakter kontrollerine alışmak benim için biraz zaman aldı, bazen hantal hissettirebiliyor.
-- Benzer keşifleri ve yolları tekrar tekrar yürümek zorunda kalmak bir noktadan sonra sabrımı zorladı.
-- Gizemleri çözmek çok eğlenceli olsa da, saf oynanış mekanikleri  çok kolay tekrara düşüyor ve "oyun" kısmı keşif heyecanının gerisinde kalıyor.
-
-# Mekanikler
-### Hafıza
+## Mechanics
+### Journal
 ![[journal.jpg]]
-* Oyundaki "şimdi ne yapacağım?" çıkmazını tamamen ortadan kaldıran harika bir sistem.
-* Soru işaretlerinin peşinden gidip o devasa gizemi parça parça çözmek bana inanılmaz bir tatmin duygusu verdi.
-* Ölüp her şeye en baştan başlamak bile bu mekanik sayesinde sinir bozucu olmaktan çıkıp anlamlı bir sürece dönüştü.
+* A great system that completely eliminates the "what am I going to do now?" dilemma in the game.
+* Following the question marks and solving that huge mystery piece by piece gave me an incredible sense of satisfaction.
+* Even dying and starting everything from the beginning turned from being frustrating into a meaningful process thanks to this mechanic.
 
-# UI / UX
+## UI / UX
 ### Menu
-![[anamenu.jpg]]
+![[main_menu.jpg]]
 ### Settings
-![[ayarlar.jpg]]
+![[settings.jpg]]
 ### HUD
 ![[hud.jpg]]
 ### Pause
-![[duraklatma.jpg]]
+![[pause.jpg]]

@@ -2,11 +2,12 @@
 tags:
 completed: false
 ---
-## Mükemmel
+## Perfect
 
-## İyi
+## Good
 
-## Berbat
+## Poor
+## Terrible
 
-# Mekanikler
-# UI / UX
+## Mechanics
+## UI / UX
