@@ -892,3 +892,42 @@ body {
     width: 14px;
     height: 14px;
 }
+/* Back to Top Button */
+.ios-back-to-top {
+    position: fixed;
+    bottom: calc(30px + var(--safe-area-bottom));
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background-color: rgba(28, 28, 30, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    color: var(--ios-blue);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.ios-back-to-top.hidden {
+    opacity: 0 !important;
+    transform: scale(0.5) translateY(20px);
+    pointer-events: none;
+}
+
+.ios-back-to-top:active {
+    transform: scale(0.9);
+    background-color: rgba(28, 28, 30, 0.9);
+}
+
+[data-theme="light"] .ios-back-to-top {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

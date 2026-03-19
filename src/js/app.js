@@ -18,7 +18,8 @@ const ui = {
     detailName: document.getElementById('detail-name'),
     detailStatus: document.getElementById('detail-status'),
     detailSections: document.getElementById('detail-sections'),
-    detailParallax: document.getElementById('detail-parallax-container')
+    detailParallax: document.getElementById('detail-parallax-container'),
+    backToTopBtn: document.getElementById('back-to-top-btn')
 };
 
 async function init() {
@@ -71,6 +72,19 @@ async function init() {
     window.navigate = navigate;
     window.openLightbox = openLightbox;
     window.closeLightbox = closeLightbox;
+
+    // Back to Top Logic
+    ui.backToTopBtn.addEventListener('click', () => {
+        ui.detailParallax.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    ui.detailParallax.addEventListener('scroll', () => {
+        if (ui.detailParallax.scrollTop > 300) {
+            ui.backToTopBtn.classList.remove('hidden');
+        } else {
+            ui.backToTopBtn.classList.add('hidden');
+        }
+    });
 }
 
 const slugify = (text) => {
@@ -119,7 +133,12 @@ function updateViewDOM() {
     ui.viewDetail.classList.toggle('hidden', _state.currentView !== 'detail');
     ui.backBtn.classList.toggle('hidden', _state.currentView === 'home');
 
+    // Reset Scroll Positions
     window.scrollTo(0, 0);
+    if (_state.currentView === 'detail') {
+        ui.detailParallax.scrollTop = 0;
+        ui.backToTopBtn.classList.add('hidden');
+    }
 }
 
 function saveState() {
@@ -453,7 +472,8 @@ function renderDetail(gameId) {
         }
     };
 
-    ui.detailParallax.scrollTop = 0;
+    // The scroll reset logic is now handled globally in updateViewDOM 
+    // to ensure it triggers after the view is made visible.
     ui.detailHero.style.filter = 'blur(0px)';
     ui.detailHero.style.transform = 'scale(1) translateY(0px)';
 }
