@@ -63,8 +63,8 @@
     ],
     "id": "outer-wilds",
     "name": "Outer Wilds",
-    "hero": "Game Atlas/Games/Outer Wilds/Sources/hero.jpg",
-    "thumbnail": "Game Atlas/Games/Outer Wilds/Sources/thumbnail.jpg"
+    "hero": "Game Atlas/Games/Outer Wilds/Sources/hero.png",
+    "thumbnail": "Game Atlas/Games/Outer Wilds/Sources/thumbnail.png"
   },
   {
     "tags": [
@@ -98,8 +98,8 @@
     "uiux": [],
     "id": "tainted-grail---the-fall-of-avalon",
     "name": "Tainted Grail - The Fall of Avalon",
-    "hero": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/hero.jpg",
-    "thumbnail": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/thumbnail.jpg"
+    "hero": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/hero.png",
+    "thumbnail": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/thumbnail.png"
   },
   {
     "tags": [
@@ -202,7 +202,7 @@
     ],
     "id": "good-pizza,-great-pizza",
     "name": "Good Pizza, Great Pizza",
-    "hero": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hero.jpg",
-    "thumbnail": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/thumbnail.jpg"
+    "hero": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hero.png",
+    "thumbnail": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/thumbnail.png"
   }
 ]
