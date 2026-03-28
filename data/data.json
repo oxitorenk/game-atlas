@@ -73,7 +73,7 @@
       "FPS",
       "Dark-Fantasy"
     ],
-    "completed": false,
+    "completed": true,
     "perfect": [
       "The art direction is simply breathtaking. The meticulous design of characters, environments, and equipment is so compelling that I often found myself just stopping to take it all in."
     ],
@@ -87,15 +87,81 @@
       "Frequent bugs, while rarely game-breaking, are persistent enough to occasionally sour the experience.",
       "Side content begins to lose its charm and feels noticeably less polished starting from the second chapter.",
       "The lack of an option to cancel active quests is a frustrating oversight.",
-      "Inventory management is cumbersome and frequently feels like a chore."
+      "Inventory management is cumbersome and frequently feels like a chore.",
+      "Magic in this game isn't a system; it’s just a weapon. By treating spells like swords rather than a distinct resource, the design removes mana management but kills the 'mage' fantasy. It’s a simple gear swap that lacks tactical depth."
     ],
     "terrible": [
       "The AI is abysmal, consistently failing to create any sense of tactical or meaningful combat.",
       "The game balance is a disaster. One moment you're an unstoppable force, the next you're being one-shotted. It's incredibly inconsistent across regions.",
-      "It took over seven grueling hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying."
+      "It took over seven grueling hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying.",
+      "The ending..."
     ],
     "mechanics": [],
-    "uiux": [],
+    "uiux": [
+      {
+        "title": "Equipments",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/equipment.png"
+        ]
+      },
+      {
+        "title": "In Game",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/in-game.png"
+        ]
+      },
+      {
+        "title": "Journal",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/journal.png"
+        ]
+      },
+      {
+        "title": "Map",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/map.png"
+        ]
+      },
+      {
+        "title": "Quest",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/quest.png"
+        ]
+      },
+      {
+        "title": "Settings",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/settings.png"
+        ]
+      },
+      {
+        "title": "Skills",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/skill.png"
+        ]
+      },
+      {
+        "title": "Skill Page",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/skill-focus.png"
+        ]
+      },
+      {
+        "title": "Main Menu",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/main-menu.png"
+        ]
+      }
+    ],
     "id": "tainted-grail---the-fall-of-avalon",
     "name": "Tainted Grail - The Fall of Avalon",
     "hero": "Game Atlas/Games/Tainted Grail - The Fall of Avalon/Sources/hero.png",

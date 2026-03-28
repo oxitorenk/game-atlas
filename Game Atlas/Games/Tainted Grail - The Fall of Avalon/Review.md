@@ -4,7 +4,7 @@ tags:
   - Open-World
   - FPS
   - Dark-Fantasy
-completed: false
+completed: true
 ---
 ## Perfect
 - The art direction is simply breathtaking. The meticulous design of characters, environments, and equipment is so compelling that I often found myself just stopping to take it all in.
@@ -20,12 +20,33 @@ completed: false
 - Side content begins to lose its charm and feels noticeably less polished starting from the second chapter.
 - The lack of an option to cancel active quests is a frustrating oversight.
 - Inventory management is cumbersome and frequently feels like a chore.
+- Magic in this game isn't a system; it’s just a weapon. By treating spells like swords rather than a distinct resource, the design removes mana management but kills the 'mage' fantasy. It’s a simple gear swap that lacks tactical depth.
 
 ## Terrible
 - The AI is abysmal, consistently failing to create any sense of tactical or meaningful combat.
 - The game balance is a disaster. One moment you're an unstoppable force, the next you're being one-shotted. It's incredibly inconsistent across regions.
 - It took over seven grueling hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying.
+- The ending...
 
 ## Mechanics
 
 ## UI / UX
+### Equipments
+![[equipment.png]]
+### In Game
+![[in-game.png]]
+
+### Journal
+![[journal.png]]
+### Map
+![[map.png]]
+### Quest
+![[quest.png]]
+### Settings
+![[settings.png]]
+### Skills
+![[skill.png]]
+### Skill Page
+![[skill-focus.png]]
+### Main Menu
+![[main-menu.png]]
