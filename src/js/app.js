@@ -20,7 +20,19 @@ const ui = {
     detailStatus: document.getElementById('detail-status'),
     detailSections: document.getElementById('detail-sections'),
     detailParallax: document.getElementById('detail-parallax-container'),
+    detailParallax: document.getElementById('detail-parallax-container'),
     backToTopBtn: document.getElementById('back-to-top-btn')
+};
+
+const ICON_PATHS = {
+    'star.fill': 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
+    'hand.thumbsup.fill': 'M13.12 2.06L7.58 7.6c-.37.37-.58.88-.58 1.41V19c0 1.1.9 2 2 2h9c.8 0 1.52-.48 1.84-1.21l3.26-7.61C23.94 10.2 23.94 10 23.94 9.8c0-1.1-.9-2-2-2H14.69l.92-4.44c.08-.34 0-.7-.21-.99-.21-.29-.54-.46-.9-.46h-.5l-.88.15z',
+    'hand.point.down.fill': 'M11 2h2v10.24l3.29-3.29 1.42 1.42L12 16.08l-5.71-5.71 1.42-1.42L11 12.24V2zM7 18h10v2H7v-2z',
+    'hand.thumbsdown.fill': 'M10.88 21.94l5.54-5.54c.37-.37.58-.88.58-1.41V5c0-1.1-.9-2-2-2H6c-.8 0-1.52.48-1.84 1.21L.9 11.82c-.06.14-.09.31-.09.49 0 1.1.9 2 2 2h7.25l-.92 4.44c-.08.34 0 .7.21.99.21.29.54.46.9.46h.5l.88-.15z',
+    'gearshape.fill': 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z',
+    'eye.fill': 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
+    'checkmark': 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z',
+    'pause': 'M6 19h4V5H6v14zm8-14v14h4V5h-4z'
 };
 
 async function init() {
@@ -188,35 +200,35 @@ function renderSearchDropdown() {
 
     const results = [];
 
-    _state.games.forEach(g => {
+    _state.games.forEach(game => {
         // Name match
-        if (g.name.toLowerCase().includes(query)) {
-            results.push({ game: g, type: 'Game', label: g.name, target: '' });
+        if (game.name.toLowerCase().includes(query)) {
+            results.push({ game: game, type: 'Game', label: game.name, target: '' });
         }
 
         // Tag match
-        if (g.tags) {
-            g.tags.forEach(t => {
-                if (t.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Tag', label: t, target: '' });
+        if (game.tags) {
+            game.tags.forEach(tag => {
+                if (tag.toLowerCase().includes(query)) {
+                    results.push({ game: game, type: 'Tag', label: tag, target: '' });
                 }
             });
         }
 
         // Mechanic match
-        if (g.mechanics) {
-            g.mechanics.forEach(m => {
-                if (m.title && m.title.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Mechanic', label: m.title, target: slugify(m.title) });
+        if (game.mechanics) {
+            game.mechanics.forEach(mechanic => {
+                if (mechanic.title && mechanic.title.toLowerCase().includes(query)) {
+                    results.push({ game: game, type: 'Mechanic', label: mechanic.title, target: slugify(mechanic.title) });
                 }
             });
         }
 
         // UI/UX match
-        if (g.uiux) {
-            g.uiux.forEach(u => {
-                if (u.title && u.title.toLowerCase().includes(query)) {
-                    results.push({ game: g, type: 'Interface', label: u.title, target: slugify(u.title) });
+        if (game.uiux) {
+            game.uiux.forEach(uiItem => {
+                if (uiItem.title && uiItem.title.toLowerCase().includes(query)) {
+                    results.push({ game: game, type: 'Interface', label: uiItem.title, target: slugify(uiItem.title) });
                 }
             });
         }
@@ -300,22 +312,31 @@ function renderDetail(gameId) {
     const game = _state.games.find(g => g.id === gameId);
     if (!game) return;
 
-    const iconPaths = {
-        'star.fill': 'M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z',
-        'hand.thumbsup.fill': 'M13.12 2.06L7.58 7.6c-.37.37-.58.88-.58 1.41V19c0 1.1.9 2 2 2h9c.8 0 1.52-.48 1.84-1.21l3.26-7.61C23.94 10.2 23.94 10 23.94 9.8c0-1.1-.9-2-2-2H14.69l.92-4.44c.08-.34 0-.7-.21-.99-.21-.29-.54-.46-.9-.46h-.5l-.88.15z',
-        'hand.point.down.fill': 'M11 2h2v10.24l3.29-3.29 1.42 1.42L12 16.08l-5.71-5.71 1.42-1.42L11 12.24V2zM7 18h10v2H7v-2z',
-        'hand.thumbsdown.fill': 'M10.88 21.94l5.54-5.54c.37-.37.58-.88.58-1.41V5c0-1.1-.9-2-2-2H6c-.8 0-1.52.48-1.84 1.21L.9 11.82c-.06.14-.09.31-.09.49 0 1.1.9 2 2 2h7.25l-.92 4.44c-.08.34 0 .7.21.99.21.29.54.46.9.46h.5l.88-.15z',
-        'gearshape.fill': 'M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.21.07-.47-.12-.61l-2.01-1.58zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z',
-        'eye.fill': 'M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z',
-        'checkmark': 'M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z',
-        'pause': 'M6 19h4V5H6v14zm8-14v14h4V5h-4z'
-    };
+    updateHero(game);
+    updateStatus(game);
+    renderGameSections(game);
 
+    setupParallaxScroll();
+}
+
+/**
+ * Updates the hero images (main and blurred)
+ */
+function updateHero(game) {
     ui.detailHero.src = game.hero || '';
     ui.detailHeroBlur.src = game.hero || '';
     ui.detailName.textContent = game.name;
+    
+    // Reset hero position
+    ui.detailHero.style.transform = 'scale(1) translateY(0px)';
+    ui.detailHeroBlur.style.transform = 'scale(1) translateY(0px)';
+    ui.detailHeroBlur.style.opacity = 0;
+}
 
-    // Status Badge
+/**
+ * Updates the game status badge (Completed/Dropped)
+ */
+function updateStatus(game) {
     const isCompleted = game.completed === true;
     const statusText = isCompleted ? 'Completed' : 'Dropped';
     const statusClass = isCompleted ? 'status-badge-completed' : 'status-badge-dropped';
@@ -324,12 +345,17 @@ function renderDetail(gameId) {
     ui.detailStatus.innerHTML = `
         <div class="status-badge ${statusClass}">
             <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="${iconPaths[statusIcon]}"/>
+                <path d="${ICON_PATHS[statusIcon]}"/>
             </svg>
             <span>${statusText}</span>
         </div>
     `;
+}
 
+/**
+ * Renders all detail sections (Perfect, Good, Poor, Mechanics, etc.)
+ */
+function renderGameSections(game) {
     const sections = [
         { id: 'perfect', title: 'PERFECT', icon: 'star.fill', color: '#FFD60A', content: game.perfect },
         { id: 'good', title: 'GOOD', icon: 'hand.thumbsup.fill', color: '#32D74B', content: game.good },
@@ -339,125 +365,129 @@ function renderDetail(gameId) {
         { id: 'uiux', title: 'UI / UX', icon: 'eye.fill', color: '#AF52DE', content: game.uiux }
     ];
 
-    const renderList = (items, iconClass) => {
-        if (!items || items.length === 0) return '';
-
-        return `
-            <ul class="ios-bullet-list ${iconClass}">
-                ${items.map(item => {
-            if (typeof item === 'string') {
-                return `<li>${item}</li>`;
-            } else if (typeof item === 'object') {
-                return `
-                            <li>
-                                ${item.text}
-                                ${item.children ? renderList(item.children, '') : ''}
-                            </li>
-                        `;
-            }
-            return '';
-        }).join('')}
-            </ul>
-        `;
-    };
-
-    const renderStructuredSection = (sectionData, color, icon, sectionId) => {
-        if (!sectionData || sectionData.length === 0) return '';
-
-        if (sectionId === 'uiux') {
-            return `
-                <div class="uiux-gallery">
-                    ${sectionData.map(sub => {
-                const subSectionId = sub.title ? slugify(sub.title) : '';
-                return `
-                            <div class="uiux-card" ${subSectionId ? `id="section-${subSectionId}"` : ''} onclick="openLightbox('${sub.images[0]}')">
-                                <div class="uiux-card-image-wrapper">
-                                    <img class="uiux-card-image" src="${sub.images[0]}" alt="${sub.title || 'Interface'}">
-                                </div>
-                                ${sub.title ? `<div class="uiux-card-caption">${sub.title}</div>` : ''}
-                            </div>
-                        `;
-            }).join('')}
-                </div>
-            `;
-        }
-
-        return sectionData.map(sub => {
-            const subSectionId = sub.title ? slugify(sub.title) : '';
-
-            let contentHtml = '';
-            if (sub.text) {
-                if (sectionId === 'mechanics') {
-                    // Check if the text is a markdown list
-                    const listItems = sub.text.split('\n').filter(line => line.trim().startsWith('*'));
-                    if (listItems.length > 0) {
-                        contentHtml = `
-                            <ul class="mechanics-list">
-                                ${listItems.map(item => `<li>${item.trim().replace(/^\*\s*/, '')}</li>`).join('')}
-                            </ul>
-                        `;
-                    } else {
-                        contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
-                    }
-                } else {
-                    contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
-                }
-            }
-
-            return `
-                <div class="detail-subsection" ${subSectionId ? `id="section-${subSectionId}"` : ''}>
-                    ${sub.title ? `<div class="detail-subsection-title">${sub.title}</div>` : ''}
-                    ${contentHtml}
-                    ${sub.images && sub.images.length > 0 ? `
-                        <div class="detail-gallery">
-                            ${sub.images.map(img => `
-                                <img class="detail-gallery-image" src="${img}" alt="${sub.title || 'Image'}" onclick="openLightbox('${img}')">
-                            `).join('')}
-                        </div>
-                    ` : ''}
-                </div>
-            `;
-        }).join('');
-    };
-
-    ui.detailSections.innerHTML = sections.map(s => {
-        const isStructured = Array.isArray(s.content) && s.content.length > 0 && typeof s.content[0] === 'object' && ('title' in s.content[0]);
+    ui.detailSections.innerHTML = sections.map(section => {
+        const isStructured = Array.isArray(section.content) && 
+                            section.content.length > 0 && 
+                            typeof section.content[0] === 'object' && 
+                            ('title' in section.content[0]);
 
         if (isStructured) {
             return `
                 <div class="detail-section">
-                    <div class="detail-section-header">
-                        <svg class="detail-section-icon" viewBox="0 0 24 24" fill="${s.color}">
-                            <path d="${iconPaths[s.icon] || ''}"/>
-                        </svg>
-                        <span class="detail-section-title">${s.title}</span>
-                    </div>
-                    ${renderStructuredSection(s.content, s.color, s.icon, s.id)}
+                    ${renderSectionHeader(section)}
+                    ${renderStructuredSection(section.content, section.id)}
                 </div>
             `;
         } else {
-            const hasContent = Array.isArray(s.content) ? s.content.length > 0 : s.content && s.content.trim();
+            const hasContent = Array.isArray(section.content) ? section.content.length > 0 : section.content && section.content.trim();
             if (!hasContent) return '';
 
             return `
                 <div class="detail-section">
-                    <div class="detail-section-header">
-                        <svg class="detail-section-icon" viewBox="0 0 24 24" fill="${s.color}">
-                            <path d="${iconPaths[s.icon] || ''}"/>
-                        </svg>
-                        <span class="detail-section-title">${s.title}</span>
-                    </div>
+                    ${renderSectionHeader(section)}
                     <div class="detail-card">
-                        ${Array.isArray(s.content)
-                    ? renderList(s.content, `ios-bullet-list-${s.icon.replace(/\./g, '-')}`)
-                    : s.content.replace(/\n/g, '<br>')}
+                        ${Array.isArray(section.content)
+                            ? renderList(section.content, `ios-bullet-list-${section.icon.replace(/\./g, '-')}`)
+                            : section.content.replace(/\n/g, '<br>')}
                     </div>
                 </div>
             `;
         }
     }).join('');
+}
 
+function renderSectionHeader(section) {
+    return `
+        <div class="detail-section-header">
+            <svg class="detail-section-icon" viewBox="0 0 24 24" fill="${section.color}">
+                <path d="${ICON_PATHS[section.icon] || ''}"/>
+            </svg>
+            <span class="detail-section-title">${section.title}</span>
+        </div>
+    `;
+}
 
+function renderList(items, iconClass) {
+    if (!items || items.length === 0) return '';
+
+    return `
+        <ul class="ios-bullet-list ${iconClass}">
+            ${items.map(item => {
+                if (typeof item === 'string') {
+                    return `<li>${item}</li>`;
+                } else if (typeof item === 'object') {
+                    return `
+                        <li>
+                            ${item.text}
+                            ${item.children ? renderList(item.children, '') : ''}
+                        </li>
+                    `;
+                }
+                return '';
+            }).join('')}
+        </ul>
+    `;
+}
+
+function renderStructuredSection(sectionData, sectionId) {
+    if (!sectionData || sectionData.length === 0) return '';
+
+    if (sectionId === 'uiux') {
+        return `
+            <div class="uiux-gallery">
+                ${sectionData.map(sub => {
+                    const subId = sub.title ? slugify(sub.title) : '';
+                    return `
+                        <div class="uiux-card" ${subId ? `id="section-${subId}"` : ''} onclick="openLightbox('${sub.images[0]}')">
+                            <div class="uiux-card-image-wrapper">
+                                <img class="uiux-card-image" src="${sub.images[0]}" alt="${sub.title || 'Interface'}">
+                            </div>
+                            ${sub.title ? `<div class="uiux-card-caption">${sub.title}</div>` : ''}
+                        </div>
+                    `;
+                }).join('')}
+            </div>
+        `;
+    }
+
+    return sectionData.map(sub => {
+        const subId = sub.title ? slugify(sub.title) : '';
+        let contentHtml = '';
+        
+        if (sub.text) {
+            if (sectionId === 'mechanics') {
+                const listItems = sub.text.split('\n').filter(line => line.trim().startsWith('*'));
+                if (listItems.length > 0) {
+                    contentHtml = `
+                        <ul class="mechanics-list">
+                            ${listItems.map(item => `<li>${item.trim().replace(/^\*\s*/, '')}</li>`).join('')}
+                        </ul>
+                    `;
+                } else {
+                    contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
+                }
+            } else {
+                contentHtml = `<div class="detail-card">${sub.text.replace(/\n/g, '<br>')}</div>`;
+            }
+        }
+
+        return `
+            <div class="detail-subsection" ${subId ? `id="section-${subId}"` : ''}>
+                ${sub.title ? `<div class="detail-subsection-title">${sub.title}</div>` : ''}
+                ${contentHtml}
+                ${sub.images && sub.images.length > 0 ? `
+                    <div class="detail-gallery">
+                        ${sub.images.map(img => `
+                            <img class="detail-gallery-image" src="${img}" alt="${sub.title || 'Image'}" onclick="openLightbox('${img}')">
+                        `).join('')}
+                    </div>
+                ` : ''}
+            </div>
+        `;
+    }).join('');
+}
+
+function setupParallaxScroll() {
     let ticking = false;
     ui.detailParallax.onscroll = () => {
         if (!ticking) {
@@ -479,12 +509,6 @@ function renderDetail(gameId) {
             ticking = true;
         }
     };
-
-    // The scroll reset logic is now handled globally in updateViewDOM 
-    // to ensure it triggers after the view is made visible.
-    ui.detailHero.style.transform = 'scale(1) translateY(0px)';
-    ui.detailHeroBlur.style.transform = 'scale(1) translateY(0px)';
-    ui.detailHeroBlur.style.opacity = 0;
 }
 
 init();
