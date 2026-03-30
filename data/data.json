@@ -10,7 +10,7 @@
     "perfect": [
       "I absolutely loved the <a href=\"#Journal\" class=\"wiki-link\">Journal</a> mechanic. It's incredible how the game solves the \"what's the next step?\" question so naturally.",
       "The massive mystery and story created are very enjoyable.",
-      "The art design and its unique visual language perfectly matched the game's sad yet interesting atmosphere."
+      "The art design and its unique visual language perfectly complemented the game's melancholic yet intriguing atmosphere."
     ],
     "good": [
       "Traveling between planets with our spaceship and getting lost in that vast void was very enjoyable at first."
@@ -75,25 +75,25 @@
     ],
     "completed": true,
     "perfect": [
-      "The art direction is simply amazing. The detailed design of characters, environments, and equipment is so interesting that I often found myself just stopping to take it all in."
+      "The art direction is simply breathtaking. The meticulous design of characters, environments, and equipment is so compelling that I often found myself just stopping to take it all in."
     ],
     "good": [
       "For the first time since Skyrim, I've truly felt that spark of joy while losing myself in an open-world RPG.",
-      "The game is full of a surprising amount of unique, handcrafted content."
+      "The game is brimming with a surprising amount of unique, handcrafted content."
     ],
     "poor": [
-      "The main narrative feels somewhat boring and fails to leave a lasting impression.",
-      "Combat starts off with promise but quickly fails. Poor difficulty balancing turns enemies into boring \"bullet sponges\" by the second chapter.",
-      "Frequent bugs, while rarely game-breaking, are constant enough to occasionally sour the experience.",
+      "The main narrative feels somewhat lackluster and fails to leave a lasting impression.",
+      "Combat starts off with promise but quickly falters. Poor difficulty balancing turns enemies into tedious \"bullet sponges\" by the second chapter.",
+      "Frequent bugs, while rarely game-breaking, are persistent enough to occasionally sour the experience.",
       "Side content begins to lose its charm and feels noticeably less polished starting from the second chapter.",
       "The lack of an option to cancel active quests is a frustrating oversight.",
-      "Inventory management is difficult and frequently feels like a chore.",
+      "Inventory management is cumbersome and frequently feels like a chore.",
       "Magic in this game isn't a system; it’s just a weapon. By treating spells like swords rather than a distinct resource, the design removes mana management but kills the 'mage' fantasy. It’s a simple gear swap that lacks tactical depth."
     ],
     "terrible": [
-      "The AI is terrible, consistently failing to create any sense of tactical or meaningful combat.",
+      "The AI is abysmal, consistently failing to create any sense of tactical or meaningful combat.",
       "The game balance is a disaster. One moment you're an unstoppable force, the next you're being one-shotted. It's incredibly inconsistent across regions.",
-      "It took over seven hard hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying.",
+      "It took over seven grueling hours to find even remotely useful gear for my elemental mage build, and even now, the results feel underwhelming and unsatisfying.",
       "The ending..."
     ],
     "mechanics": [],
@@ -197,7 +197,7 @@
         ]
       },
       "Mobile game behaviors flow from every part of the PC version; in-game purchases (IAP) appearing at every corner ruined my enjoyment by giving a \"free game\" feeling.",
-      "I experienced a complete technical disaster. Because of cloud save problems, the effort I put in for hours was deleted several times. The game becoming unplayable in this way was the last straw for me and I had to return it."
+      "I experienced a complete technical fiasco. Because of cloud save problems, the effort I put in for hours was deleted several times. The game becoming unplayable in this way was the last straw for me and I had to return it."
     ],
     "mechanics": [
       {
@@ -270,5 +270,67 @@
     "name": "Good Pizza, Great Pizza",
     "hero": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/hero.png",
     "thumbnail": "Game Atlas/Games/Good Pizza, Great Pizza/Sources/thumbnail.png"
+  },
+  {
+    "tags": [
+      "rogue-lite",
+      "management",
+      "deck-builder"
+    ],
+    "completed": false,
+    "perfect": [],
+    "good": [
+      "I really enjoyed the core loop's mix of grid-based management and a rewarding three-card drafting system.",
+      "The art style is visually engaging, and the SFX add a great sense of impact to each action.",
+      "The quest mode is a standout, providing meaningful scenarios and a sense of purpose that keeps the gameplay from feeling aimless."
+    ],
+    "poor": [
+      "I found myself getting bored after about 30 minutes of play.",
+      "The game feels like a bit of a slow burn for my taste.",
+      "A significant friction point is the lack of grid-buff previews—the game features target buffs that affect specific shapes (like diagonal grids), but it doesn't show you which cells will actually be boosted until after you commit, which makes tactical planning and grid management unnecessarily frustrating."
+    ],
+    "terrible": [],
+    "mechanics": [],
+    "uiux": [
+      {
+        "title": "Main Menu",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/9 Kings/Sources/main-menu.png"
+        ]
+      },
+      {
+        "title": "Settings Menu",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/9 Kings/Sources/settings-menu.png"
+        ]
+      },
+      {
+        "title": "Pause Menu",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/9 Kings/Sources/pause-menu.png"
+        ]
+      },
+      {
+        "title": "In Game Shop",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/9 Kings/Sources/in-game-shop.png"
+        ]
+      },
+      {
+        "title": "Compendium Page",
+        "text": "",
+        "images": [
+          "Game Atlas/Games/9 Kings/Sources/compendium-page.png"
+        ]
+      }
+    ],
+    "id": "9-kings",
+    "name": "9 Kings",
+    "hero": "Game Atlas/Games/9 Kings/Sources/hero.png",
+    "thumbnail": "Game Atlas/Games/9 Kings/Sources/thumbnail.png"
   }
 ]
